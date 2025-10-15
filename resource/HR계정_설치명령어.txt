@@ -1,0 +1,4 @@
+--세션변경
+alter session set "_ORACLE_SCRIPT"=true;
+--HR계정 설치
+@?/demo/schema/human_resources/hr_install.sql
