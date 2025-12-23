@@ -1,0 +1,25 @@
+case1. 디비버 재설치로 인한 충돌이슈
+
+(cmd) lsnrctl status
+(cmd) sys as sysdba 로그인
+
+alter system set local_listener='(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=1521))' scope=both;
+alter system register;
+
+------------------------------------------------------------------------------
+
+case2. 리스너 경로를 못찾을때
+
+1) 시스템 환경 변수 추가
+새 시스템 변수 추가
+변수 이름: TNS_ADMIN
+변수 값: C:\app\user\product\21c\homes\OraDB21Home1\network\admin
+확인 → PC 재부팅
+
+2) 리스너 재기동
+재부팅 후 관리자 권한 CMD에서,
+C:\app\user\product\21c\dbhomeXE\bin\lsnrctl stop
+C:\app\user\product\21c\dbhomeXE\bin\lsnrctl start
+
+
+
